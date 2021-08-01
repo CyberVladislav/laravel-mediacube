@@ -5,13 +5,21 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use App\Models\Department;
+use App\Models\DepartmentsEmployee;
 
 class Employee extends Model
 {
     use HasFactory;
 
-    public function department()
+    public function departments()
     {
-        return $this->belongsTo('App\Models\Department');
+        return $this->belongsToMany('App\Models\Department', 'departments_employees', 'employee_id', 'department_id');
+    }
+
+    public function getId($qwe)
+    {
+        $department = DepartmentsEmployee::whereDepartment_idAndEmployee_id($qwe, $this->id)->first();
+        if($department)
+        return $department->department_id;
     }
 }
