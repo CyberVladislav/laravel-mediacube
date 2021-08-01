@@ -26,13 +26,12 @@
     <div class="container">
         <div class="row">
             <div class="content col-lg-12">
-                <div class="d-flex justify-content-between">
-                <h4>Таблица отделов</h4>
-                <form action="{{ route('departments.create') }}">
-                    <button type="submit" class="btn btn-light">Добавить отдел</button>
-                </form>
+                <div class="d-flex flex-wrap justify-content-around">
+                    <h4>Таблица отделов</h4>
+                    <form action="{{ route('departments.create') }}">
+                        <button type="submit" class="btn btn-light">Добавить отдел</button>
+                    </form>
                 </div>
-                
                 <div class="table-responsive">
                     <table class="table table-bordered nobottommargin">
                         <thead>

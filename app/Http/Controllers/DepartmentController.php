@@ -86,8 +86,8 @@ class DepartmentController extends Controller
             'name' => 'required|max:255',
         ]);
         Department::whereId($id)->update($updateData);
+        
         return redirect('/departments')->with('success', 'Отдел успешно обновлён');
-    
     }
 
     /**
@@ -105,6 +105,5 @@ class DepartmentController extends Controller
         } catch (\Exception $e) {
             return redirect('/departments')->with('error', 'Невозможно удалить отдел, в котором есть сотрудники');
         }
-        
     }
 }

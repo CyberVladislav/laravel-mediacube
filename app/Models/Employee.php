@@ -10,6 +10,7 @@ use App\Models\DepartmentsEmployee;
 class Employee extends Model
 {
     use HasFactory;
+    protected $fillable = ['name', 'surname', 'patronymic', 'sex', 'salary'];
 
     public function departments()
     {

@@ -36,7 +36,7 @@
                             <nav>
                                 <ul>
                                     <li><a href="{{ asset('/') }}">Главная</a></li>
-                                    <li><a href="{{ asset('employee') }}">Сотрудники</a></li>
+                                    <li><a href="{{ asset('employees') }}">Сотрудники</a></li>
                                     <li><a href="{{ asset('departments') }}">Отделы</a></li>
                                 </ul>
                             </nav>

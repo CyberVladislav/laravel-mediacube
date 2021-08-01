@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Employee;
+use App\Models\Department;
 
 class EmployeeController extends Controller
 {
@@ -29,7 +30,11 @@ class EmployeeController extends Controller
      */
     public function create()
     {
-        //
+        $departments = Department::all();
+
+        return view('crud/employee/create', [
+            'departments' => $departments,
+        ]);
     }
 
     /**
@@ -40,7 +45,19 @@ class EmployeeController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $storeData = $request->validate([
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'patronymic' => 'nullable|max:255',
+            'sex' => 'nullable|max:255',
+            'salary' => 'nullable|numeric',
+            'departments' => 'required|array|max:255',
+        ]);
+
+        $employee = Employee::create($storeData);
+        $employee->departments()->attach($request->departments);
+        
+        return redirect('/employees')->with('success', 'Сотрудник добавлен');
     }
 
     /**
@@ -62,7 +79,13 @@ class EmployeeController extends Controller
      */
     public function edit($id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        $departments = Department::all();
+
+        return view('crud/employee/edit', [
+            'employee' => $employee,
+            'departments' => $departments
+        ]);
     }
 
     /**
@@ -74,7 +97,20 @@ class EmployeeController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updateData = $request->validate([
+            'name' => 'required|max:255',
+            'surname' => 'required|max:255',
+            'patronymic' => 'nullable|max:255',
+            'sex' => 'nullable|max:255',
+            'salary' => 'nullable|numeric',
+        ]);
+        $checkDepartments = $request->validate([
+            'departments' => 'required|array|max:255'
+        ]);
+        Employee::whereId($id)->update($updateData);
+        $employee = Employee::findOrFail($id)->departments()->sync($request->departments);
+
+        return redirect('/employees')->with('success', 'Сотрудник успешно обновлён');
     }
 
     /**
@@ -85,6 +121,10 @@ class EmployeeController extends Controller
      */
     public function destroy($id)
     {
-        //
+        $employee = Employee::findOrFail($id);
+        $employee->departments()->detach();
+        $employee->delete();
+
+        return redirect('/employees')->with('success', 'Отдел успешно удалён');
     }
 }
