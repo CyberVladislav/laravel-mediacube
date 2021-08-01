@@ -10,8 +10,8 @@ class Department extends Model
 {
     use HasFactory;
 
-    public function employee()
+    public function employees()
     {
-        return $this->hasMany('App\Models\Employee');
+        return $this->belongsToMany('App\Models\Employee', 'departments_employees', 'department_id', 'employee_id');
     }
 }
