@@ -16,9 +16,9 @@ class DepartmentSeeder extends Seeder
     public function run()
     {
         $faker = Faker::create();
-        foreach (range(1,4) as $index) {
+        foreach (range(1,7) as $index) {
             DB::table('departments')->insert([
-                'name' => $faker->randomElement($array = array ('Football', 'Basketball', 'Baseball', 'Voleyball','Tennis', 'Running', 'Boxing', 'Swimming')),
+                'name' => $faker->jobTitle(),
            ]);
         }
     }

@@ -5,7 +5,7 @@
     <div class="container">
         <div class="page-title">
             <h1>Отделы</h1>
-            <span>Показывает отделы</span>
+            <span>Страница показывает все отделы и связанную информацию</span>
         </div>
     </div>
 </section>
@@ -47,7 +47,11 @@
                                 <tr>
                                     <td>{{ $department->name }}</td>
                                     <td>{{ $department->employees->count() }}</td>
-                                    <td>{{ $department->employees->max('salary') }}</td>
+                                    @if($department->employees->max('salary'))
+                                        <td>{{ $department->employees->max('salary') }} $</td>
+                                    @else
+                                        <td>0 $</td>
+                                    @endif
                                     <td class="text-center">
                                         <a href="{{ route('departments.edit', $department->id) }}" data-toggle="tooltip" data-original-title="Изменить" class="mr-1"><i class="far fa-edit"></i></a>
                                         <form action="{{ route('departments.destroy', $department->id)}}" method="post" style="display: inline-block">

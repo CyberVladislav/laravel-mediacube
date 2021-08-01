@@ -23,7 +23,7 @@
             <div class="header-inner">
                 <div class="container">
                     <!--Logo-->
-                    <div id="logo"> <a href="{{ asset('/') }}"><span class="logo-default">POLO</span><span class="logo-dark">POLO</span></a> </div>
+                    <div id="logo"> <a href="{{ asset('/') }}"><span class="logo-default">Учёт</span></a> </div>
                     <!--End: Logo-->
                     <!--Navigation Resposnive Trigger-->
                     <div id="mainMenu-trigger">
