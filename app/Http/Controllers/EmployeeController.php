@@ -125,6 +125,6 @@ class EmployeeController extends Controller
         $employee->departments()->detach();
         $employee->delete();
 
-        return redirect('/employees')->with('success', 'Отдел успешно удалён');
+        return redirect('/employees')->with('success', 'Сотрудник успешно удалён');
     }
 }

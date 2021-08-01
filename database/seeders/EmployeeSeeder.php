@@ -18,11 +18,11 @@ class EmployeeSeeder extends Seeder
         $faker = Faker::create();
         foreach (range(1,10) as $index) {
             DB::table('employees')->insert([
-                'name' => $faker->suffix(),
-                'surname' => $faker->name(),
+                'name' => $faker->firstName(),
+                'surname' => $faker->firstName(),
                 'patronymic' => $faker->lastName(),
                 'sex' => $faker->randomElement(['Man', 'Women']),
-                'salary' => $faker->randomFloat(2, 10000, 1000000), 
+                'salary' => $faker->randomFloat(2, 1000, 10000), 
             ]);
         }
     }

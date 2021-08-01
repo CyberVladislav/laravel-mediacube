@@ -18,8 +18,8 @@ class PivotSeeder extends Seeder
         $faker = Faker::create();
         foreach (range(1,10) as $index) {
             DB::table('departments_employees')->insert([
-                'department_id' => $faker->numberBetween(1,4),
-                'employee_id' => $faker->randomDigitNotNull(),
+                'department_id' => $faker->numberBetween(1,7),
+                'employee_id' => $faker->numberBetween(1, 20),
             ]);
         }
     }

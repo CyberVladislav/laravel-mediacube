@@ -5,7 +5,7 @@
     <div class="container">
         <div class="page-title">
             <h1>Сотрудники</h1>
-            <span>Показывает полную информцию о сотрудниках</span>
+            <span>Страница показывает полную информцию о сотрудниках</span>
         </div>
     </div>
 </section>
