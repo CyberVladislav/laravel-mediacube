@@ -28,7 +28,7 @@ class DepartmentController extends Controller
      */
     public function create()
     {
-        //
+        return view('crud/department/create');
     }
 
     /**
@@ -39,7 +39,12 @@ class DepartmentController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $storeData = $request->validate([
+            'name' => 'required|max:255',
+        ]);
+        $department = Department::create($storeData);
+
+        return redirect('/departments')->with('success', 'Отдел добавлен');
     }
 
     /**
@@ -61,7 +66,11 @@ class DepartmentController extends Controller
      */
     public function edit($id)
     {
-        //
+        $department = Department::findOrFail($id);
+
+        return view('crud/department/edit', [
+            'department' => $department
+        ]);
     }
 
     /**
@@ -73,7 +82,12 @@ class DepartmentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $updateData = $request->validate([
+            'name' => 'required|max:255',
+        ]);
+        Department::whereId($id)->update($updateData);
+        return redirect('/departments')->with('success', 'Отдел успешно обновлён');
+    
     }
 
     /**
@@ -84,6 +98,13 @@ class DepartmentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        try {
+            $department = Department::findOrFail($id);
+            $department->delete();
+            return redirect('/departments')->with('success', 'Отдел успешно удалён');
+        } catch (\Exception $e) {
+            return redirect('/departments')->with('error', 'Невозможно удалить отдел, в котором есть сотрудники');
+        }
+        
     }
 }

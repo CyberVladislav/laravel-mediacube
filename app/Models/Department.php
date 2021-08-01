@@ -9,6 +9,7 @@ use App\Models\Employee;
 class Department extends Model
 {
     use HasFactory;
+    protected $fillable = ['name'];
 
     public function employees()
     {

@@ -10,9 +10,9 @@
     <!-- Document title -->
     <title>POLO | The Multi-Purpose HTML5 Template</title>
     <!-- Stylesheets & Fonts -->
-    <link href="css/app.css" rel="stylesheet">
-    <link href="css/plugins.css" rel="stylesheet">
-    <link href="css/style.css" rel="stylesheet">
+    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/plugins.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/style.css') }}" rel="stylesheet">
 </head>
 
 <body>
@@ -37,7 +37,7 @@
                                 <ul>
                                     <li><a href="{{ asset('/') }}">Главная</a></li>
                                     <li><a href="{{ asset('employee') }}">Сотрудники</a></li>
-                                    <li><a href="{{ asset('department') }}">Отделы</a></li>
+                                    <li><a href="{{ asset('departments') }}">Отделы</a></li>
                                 </ul>
                             </nav>
                         </div>

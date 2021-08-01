@@ -16,7 +16,7 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', [App\Http\Controllers\MainController::class, 'index']);
 // Route::get('/emoloyee', [App\Http\Controllers\MainController::class, 'employee']);
 Route::resource('employee', App\Http\Controllers\EmployeeController::class);
-Route::resource('department', App\Http\Controllers\DepartmentController::class);
+Route::resource('departments', App\Http\Controllers\DepartmentController::class);
 
 Auth::routes();
 
