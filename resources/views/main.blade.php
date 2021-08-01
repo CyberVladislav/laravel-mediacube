@@ -5,7 +5,7 @@
     <div class="container">
         <div class="page-title">
             <h1>Сетка</h1>
-            <span>Показывает отделы и их сотрудников</span>
+            <span>Показывает сотрудников и отделы, в которых они работают</span>
         </div>
     </div>
 </section>
@@ -15,8 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="content col-lg-12">
-                <h4>Table</h4>
-                <div class="line"></div>
+                <h4>Общая таблица</h4>
                 <div class="table-responsive">
                     <table class="table table-bordered nobottommargin">
                         <thead>

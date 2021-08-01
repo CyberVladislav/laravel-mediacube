@@ -1,11 +1,11 @@
 @extends('welcome')
 @section('content')
 <!-- Page title -->
-<section id="page-title" class="page-title-classic" style="background-image:url({{ asset('/images/main.jpg') }});background-size: cover;color: white;">
+<section id="page-title" class="page-title-classic" style="background-image:url({{ asset('/images/employee.jpeg') }});background-size: cover;color: white;">
     <div class="container">
         <div class="page-title">
             <h1>Сотрудники</h1>
-            <span>Показывает сотрудников</span>
+            <span>Показывает полную информцию о сотрудниках</span>
         </div>
     </div>
 </section>
@@ -15,8 +15,7 @@
     <div class="container">
         <div class="row">
             <div class="content col-lg-12">
-                <h4>Table</h4>
-                <div class="line"></div>
+                <h4>Таблица сотрудников</h4>
                 <div class="table-responsive">
                     <table class="table table-bordered nobottommargin">
                         <thead>

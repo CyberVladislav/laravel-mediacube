@@ -3,9 +3,9 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use App\Models\Employee;
+use App\Models\Department;
 
-class EmployeeController extends Controller
+class DepartmentController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,13 +13,12 @@ class EmployeeController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {        
-        $employees = Employee::all();
+    {
+        $departments = Department::all();
         
-        return view('employee', [
-            'employees' => $employees,
+        return view('department', [
+            'departments' => $departments,
         ]);
-
     }
 
     /**
